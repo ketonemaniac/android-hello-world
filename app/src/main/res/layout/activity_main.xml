@@ -11,10 +11,12 @@
     android:layout_marginTop="10dp">
 
     <Button
-        android:text="Button"
+        android:text="@string/showContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button2" />
+        android:id="@+id/button2"
+        android:onClick="onShowButtonClicked"
+        />
 
     <TextView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,7 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_world"
-        tools:context=".MainActivity"/>
+        tools:context=".MainActivity"
+        android:visibility="invisible"
+        android:id="@+id/helloText"
+        />
 
 </LinearLayout>
 
