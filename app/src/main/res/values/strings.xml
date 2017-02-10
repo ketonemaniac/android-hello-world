@@ -3,4 +3,8 @@
   <string name="hello_world">Hello world!\nfinally!!!</string>
   <string name="title_activity_dummy">DummyActivity</string>
   <string name="showContent">Show Content</string>
+  <string name="newsTitle">YouTube launches Mobile Live feature in Hong Kong</string>
+  <string name="newsDate">Tue, 07 Feb 2017 22:00:38 +0800</string>
+  <string name="newsContent">Hong Kong YouTubers who are seeking to better interact with followers can now stream videos live directly from their smartphones to YouTube, while making money during the process, the video-streaming platform said on Tuesday.
+The launch of YouTube&amp;rsquo;s Mobile Live feature &amp;ndash; an extension of the desktop service &amp;ndash; comes slightly less than a year after Facebook made its mobile live-streaming feature Facebook Live available to all its users. The live-streaming trend has pioneered a...</string>
 </resources>

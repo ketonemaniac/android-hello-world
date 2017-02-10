@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentTop="true"
@@ -10,26 +10,54 @@
     android:layout_marginEnd="10dp"
     android:layout_marginTop="10dp">
 
-    <Button
-        android:text="@string/showContent"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:onClick="onShowButtonClicked"
-        />
+        android:orientation="vertical" >
 
-    <TextView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_world"
-        tools:context=".MainActivity"
-        android:visibility="invisible"
-        android:id="@+id/helloText"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/newsTitle" />
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/newsDate" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:id="@+id/imageView" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/newsContent"
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:text="@string/showContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"
+            android:onClick="onShowButtonClicked"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_world"
+            android:visibility="invisible"
+            tools:context=".MainActivity"
+            android:id="@+id/helloText"
+            />
+    </LinearLayout>
+    </ScrollView>
+
 
 
 
