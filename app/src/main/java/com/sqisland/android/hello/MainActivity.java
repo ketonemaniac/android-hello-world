@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sqisland.android.hello.io.IotdHandler;
 import com.sqisland.android.hello.io.RetrieveFeedTask;
@@ -26,6 +27,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         handler = new Handler();
+        doFetch();
+    }
+
+    private void doFetch() {
         dialog = ProgressDialog.show(this, "Loading", "Loading News...");
 
         // Cannot do internet connections on main thread!! Sprawn one thread to do it.
@@ -42,9 +47,16 @@ public class MainActivity extends Activity {
         helloText.setVisibility(View.VISIBLE);
     }
 
+    public void onRefreshButtonClicked(View view) {
+        doFetch();
+    }
+
+
+
     public void postDisplay(IotdHandler iotdHandler) {
         resetDisplay(iotdHandler.getTitle(), iotdHandler.getDate(), iotdHandler.getImage(), iotdHandler.getDescription());
         dialog.dismiss();
+        Toast.makeText(this, "Feed Updated", Toast.LENGTH_SHORT).show();
     }
 
     private void resetDisplay(String title, String date, Bitmap image, String description) {
