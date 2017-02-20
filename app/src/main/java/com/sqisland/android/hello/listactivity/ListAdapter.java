@@ -20,9 +20,9 @@ public class ListAdapter extends BaseAdapter {
     private List<String> myList = new ArrayList<String>();
 
     public ListAdapter() {
-        myList.add("Local News");
-        myList.add("International News");
-        myList.add("Secret Stuff");
+        myList.add("Headline 1");
+        myList.add("Headline 2");
+        myList.add("Headline 3");
     }
 
     @Override
@@ -51,5 +51,9 @@ public class ListAdapter extends BaseAdapter {
         view.setText(myList.get(position));
 
         return convertView;
+    }
+
+    public void addHeadline(String headline) {
+        myList.add(headline);
     }
 }

@@ -2,6 +2,7 @@ package com.sqisland.android.hello;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -51,6 +52,13 @@ public class MainActivity extends Activity {
         doFetch();
     }
 
+    public void onSaveButtonClicked(View view) {
+        Intent intent = getIntent();
+        TextView titleView = (TextView) findViewById(R.id.newsTitle);
+        intent.putExtra("headline", titleView.getText());
+        this.setResult(RESULT_OK, intent);
+        finish();
+    }
 
 
     public void postDisplay(IotdHandler iotdHandler) {
