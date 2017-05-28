@@ -1,6 +1,9 @@
 package com.sqisland.android.hello;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.ContextMenu;
@@ -9,21 +12,29 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.sqisland.android.hello.db.NewsDatabaseHelper;
+import com.sqisland.android.hello.db.NewsOpenHelper;
 import com.sqisland.android.hello.listactivity.ListAdapter;
 
 public class MyListActivity extends Activity {
 
     public static final int NEWS_RESULT_CODE = 1;
     private ListAdapter adapter;
+    private NewsDatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Remove title bar (use of create opetions menu, otherwise will not be shown!!)
+        db = new NewsDatabaseHelper(this);
+
+        //Remove title bar (use of create options menu, otherwise will not be shown!!)
         // this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         // must be after remove title bar
         setContentView(R.layout.activity_list);
@@ -81,5 +92,21 @@ public class MyListActivity extends Activity {
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * Gets the position of the listview item selected, and saves it.
+     * @param view
+     */
+    public void onPersistClicked(View view) {
+
+        ListView listView = (ListView) findViewById(R.id.activity_list_view);
+        int pos = listView.getPositionForView(view);
+        System.out.println("view clicked!!" + pos);
+
+
+        LinearLayout vwParentRow = (LinearLayout)view.getParent();
+        TextView headlineText = (TextView)vwParentRow.getChildAt(1);
+        db.saveHeadline(""+headlineText.getText());
     }
 }
